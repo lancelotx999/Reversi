@@ -235,25 +235,25 @@ int CheckFunctionPlayer1(int *row,int *col,int x,int y,char Select[28][28],int N
 			for(y=1; y < BoardSize->col; y++)
 			{
 				/*Checks the vertically if there are any valid combinations and adds scores if there are*/
-				if((Numbers[x-1][y] == Numbers[x+1][y] && Numbers[x][y] == 2 && Numbers[x][y] != 0 && Numbers[x-1][y] == 1) && (Numbers[x-1][y] != 0 || Numbers[x+1][y] != 0) )
+				if((Numbers[*row-1][*col] == Numbers[*row+1][*col] && Numbers[*row][*col] == 2 && Numbers[*row][*col] != 0 && Numbers[*row-1][*col] == 1) && (Numbers[*row-1][*col] != 0 || Numbers[*row+1][*col] != 0) )
 				{
 
 					printf("\a");
 
-					Select[x+1][y] ='|';
-					Select[x][y] ='|';
-					Select[x-1][y] ='|';
+					Select[*row+1][*col] ='|';
+					Select[*row][*col] ='|';
+					Select[*row-1][*col] ='|';
 
 					system("cls");
 					Board(x,y,Numbers,Select,BoardSize);
 					Intructions(Score);
 					getch();
 
-					Select[x+1][y] =' ';
-					Select[x][y] =' ';
-					Select[x-1][y] =' ';
+					Select[*row+1][*col] =' ';
+					Select[*row][*col] =' ';
+					Select[*row-1][*col] =' ';
 
-					Numbers[x][y] = 1;
+					Numbers[*row][*col] = 1;
 
 					system("cls");
 					Board(x,y,Numbers,Select,BoardSize);
@@ -261,25 +261,25 @@ int CheckFunctionPlayer1(int *row,int *col,int x,int y,char Select[28][28],int N
 					*Valid = 1;
 				}
 				/*Checks the horizontally if there are any valid combinations and adds scores if there are*/
-				else if((Numbers[x][y-1] == Numbers[x][y+1] && Numbers[x][y] == 2 && Numbers[x][y] != 0 && Numbers[x+1][y] == 1) && (Numbers[x][y-1] != 0 || Numbers[x][y+1] != 0) )
+				else if((Numbers[*row][*col-1] == Numbers[*row][*col+1] && Numbers[*row][*col] == 2 && Numbers[*row][*col] != 0 && Numbers[*row][*col-1] == 1) && (Numbers[*row][*col-1] != 0 || Numbers[*row][*col+1] != 0) )
 				{
 
 					printf("\a");
 
-					Select[x][y+1] ='|';
-					Select[x][y] ='|';
-					Select[x][y-1] ='|';
+					Select[*row][*col+1] ='|';
+					Select[*row][*col] ='|';
+					Select[*row][*col-1] ='|';
 
 					system("cls");
 					Board(x,y,Numbers,Select,BoardSize);
 					Intructions(Score);
 					getch();
 
-					Select[x][y+1] =' ';
-					Select[x][y] =' ';
-					Select[x][y-1] =' ';
+					Select[*row][*col+1] =' ';
+					Select[*row][*col] =' ';
+					Select[*row][*col-1] =' ';
 
-					Numbers[x][y] = 1;
+					Numbers[*row][*col] = 1;
 
 					system("cls");
 					Board(x,y,Numbers,Select,BoardSize);
@@ -287,50 +287,50 @@ int CheckFunctionPlayer1(int *row,int *col,int x,int y,char Select[28][28],int N
 					*Valid = 1;
 				}
 				/*Checks the diagonally if there are any valid combinations and adds scores if there are*/
-				else if((Numbers[x-1][y+1] == Numbers[x+1][y-1] && Numbers[x][y] == 2 && Numbers[x][y] != 0 && Numbers[x-1][y+1] == 1) && (Numbers[x-1][y+1] != 0 || Numbers[x+1][y-1] != 0) )
+				else if((Numbers[*row-1][*col+1] == Numbers[*row+1][*col-1] && Numbers[*row][*col] == 2 && Numbers[*row][*col] != 0 && Numbers[*row-1][*col+1] == 1) && (Numbers[*row-1][*col+1] != 0 || Numbers[*row+1][*col-1] != 0) )
 				{
 
 					printf("\a");
 
-					Select[x-1][y+1] ='|';
-					Select[x][y] ='|';
-					Select[x+1][y-1] ='|';
+					Select[*row-1][*col+1] ='|';
+					Select[*row][*col] ='|';
+					Select[*row+1][*col-1] ='|';
 
 					system("cls");
 					Board(x,y,Numbers,Select,BoardSize);
 					Intructions(Score);
 					getch();
 
-					Select[x+1][y-1] =' ';
-					Select[x][y] =' ';
-					Select[x-1][y+1] =' ';
+					Select[*row+1][*col-1] =' ';
+					Select[*row][*col] =' ';
+					Select[*row-1][*col+1] =' ';
 
-					Numbers[x][y] = 1;
+					Numbers[*row][*col] = 1;
 
 					system("cls");
 					Board(x,y,Numbers,Select,BoardSize);
 					Intructions(Score);
 					*Valid = 1;
 				}
-				else if((Numbers[x+1][y+1] == Numbers[x+1][y+1] && Numbers[x][y] == 2 && Numbers[x][y] != 0 && Numbers[x+1][y+1] == 1) && (Numbers[x+1][y+1] != 0 || Numbers[x+1][y+1] != 0) )
+				else if((Numbers[*row+1][*col+1] == Numbers[*row+1][*col+1] && Numbers[*row][*col] == 2 && Numbers[*row][*col] != 0 && Numbers[*row+1][*col+1] == 1) && (Numbers[*row+1][*col+1] != 0 || Numbers[*row+1][*col+1] != 0) )
 				{
 
 					printf("\a");
 
-					Select[x+1][y+1] ='|';
-					Select[x][y] ='|';
-					Select[x+1][y+1] ='|';
+					Select[*row+1][*col+1] ='|';
+					Select[*row][*col] ='|';
+					Select[*row+1][*col+1] ='|';
 
 					system("cls");
 					Board(x,y,Numbers,Select,BoardSize);
 					Intructions(Score);
 					getch();
 
-					Select[x+1][y+1] =' ';
-					Select[x][y] =' ';
-					Select[x+1][y+1] =' ';
+					Select[*row+1][*col+1] =' ';
+					Select[*row][*col] =' ';
+					Select[*row+1][*col+1] =' ';
 
-					Numbers[x][y] = 1;
+					Numbers[*row][*col] = 1;
 
 					system("cls");
 					Board(x,y,Numbers,Select,BoardSize);
@@ -350,25 +350,25 @@ int CheckFunctionPlayer2(int *row,int *col,int x,int y,char Select[28][28],int N
 			for(y=1; y < BoardSize->col; y++)
 			{
 				/*Checks the vertically if there are any valid combinations and adds scores if there are*/
-				if((Numbers[x-1][y] == Numbers[x+1][y] && Numbers[x][y] == 1 && Numbers[x][y] != 0 && Numbers[x-1][y] == 1) && (Numbers[x-1][y] != 0 || Numbers[x+1][y] != 0) )
+				if((Numbers[*row-1][*col] == Numbers[*row+1][*col] && Numbers[*row][*col] == 1 && Numbers[*row][*col] != 0 && Numbers[*row-1][*col] == 1) && (Numbers[*row-1][*col] != 0 || Numbers[*row+1][*col] != 0) )
 				{
 
 					printf("\a");
 
-					Select[x+1][y] ='|';
-					Select[x][y] ='|';
-					Select[x-1][y] ='|';
+					Select[*row+1][*col] ='|';
+					Select[*row][*col] ='|';
+					Select[*row-1][*col] ='|';
 
 					system("cls");
 					Board(x,y,Numbers,Select,BoardSize);
 					Intructions(Score);
 					getch();
 
-					Select[x+1][y] =' ';
-					Select[x][y] =' ';
-					Select[x-1][y] =' ';
+					Select[*row+1][*col] =' ';
+					Select[*row][*col] =' ';
+					Select[*row-1][*col] =' ';
 
-					Numbers[x][y] = 2;
+					Numbers[*row][*col] = 2;
 
 					system("cls");
 					Board(x,y,Numbers,Select,BoardSize);
@@ -376,24 +376,24 @@ int CheckFunctionPlayer2(int *row,int *col,int x,int y,char Select[28][28],int N
 					*Valid = 1;
 				}
 				/*Checks the horizontally if there are any valid combinations and adds scores if there are*/
-				else if((Numbers[x][y-1] == Numbers[x][y+1] && Numbers[x][y] == 1 && Numbers[x][y] != 0 && Numbers[x-1][y] == 1) && (Numbers[x][y-1] != 0 || Numbers[x][y+1] != 0) )
+				else if((Numbers[*row][*col-1] == Numbers[*row][*col+1] && Numbers[*row][*col] == 1 && Numbers[*row][*col] != 0 && Numbers[*row][*col-1] == 1) && (Numbers[*row][*col-1] != 0 || Numbers[*row][*col+1] != 0) )
 				{
 					printf("\a");
 
-					Select[x][y+1] ='|';
-					Select[x][y] ='|';
-					Select[x][y-1] ='|';
+					Select[*row][*col+1] ='|';
+					Select[*row][*col] ='|';
+					Select[*row][*col-1] ='|';
 
 					system("cls");
 					Board(x,y,Numbers,Select,BoardSize);
 					Intructions(Score);
 					getch();
 
-					Select[x][y+1] =' ';
-					Select[x][y] =' ';
-					Select[x][y-1] =' ';
+					Select[*row][*col+1] =' ';
+					Select[*row][*col] =' ';
+					Select[*row][*col-1] =' ';
 
-					Numbers[x][y] = 2;
+					Numbers[*row][*col] = 2;
 
 					system("cls");
 					Board(x,y,Numbers,Select,BoardSize);
@@ -401,50 +401,50 @@ int CheckFunctionPlayer2(int *row,int *col,int x,int y,char Select[28][28],int N
 					*Valid = 1;
 				}
 				/*Checks the diagonally if there are any valid combinations and adds scores if there are*/
-				else if((Numbers[x-1][y+1] == Numbers[x+1][y-1] && Numbers[x][y] == 1 && Numbers[x][y] != 0 && Numbers[x-1][y] == 1) && (Numbers[x-1][y+1] != 0 || Numbers[x+1][y-1] != 0) )
+				else if((Numbers[*row-1][*col+1] == Numbers[*row+1][*col-1] && Numbers[*row][*col] == 1 && Numbers[*row][*col] != 0 && Numbers[*row-1][*col] == 1) && (Numbers[*row-1][*col+1] != 0 || Numbers[*row+1][*col-1] != 0) )
 				{
 
 					printf("\a");
 
-					Select[x-1][y+1] ='|';
-					Select[x][y] ='|';
-					Select[x+1][y-1] ='|';
+					Select[*row-1][*col+1] ='|';
+					Select[*row][*col] ='|';
+					Select[*row+1][*col-1] ='|';
 
 					system("cls");
 					Board(x,y,Numbers,Select,BoardSize);
 					Intructions(Score);
 					getch();
 
-					Select[x+1][y-1] =' ';
-					Select[x][y] =' ';
-					Select[x-1][y+1] =' ';
+					Select[*row+1][*col-1] =' ';
+					Select[*row][*col] =' ';
+					Select[*row-1][*col+1] =' ';
 
-					Numbers[x][y] = 2;
+					Numbers[*row][*col] = 2;
 
 					system("cls");
 					Board(x,y,Numbers,Select,BoardSize);
 					Intructions(Score);
 					*Valid = 1;
 				}
-				else if((Numbers[x+1][y+1] == Numbers[x+1][y+1] && Numbers[x][y] == 1 && Numbers[x][y] != 0 && Numbers[x-1][y] == 1) && (Numbers[x+1][y+1] != 0 || Numbers[x+1][y+1] != 0) )
+				else if((Numbers[*row+1][*col+1] == Numbers[*row+1][*col+1] && Numbers[*row][*col] == 1 && Numbers[*row][*col] != 0 && Numbers[*row-1][*col] == 1) && (Numbers[*row+1][*col+1] != 0 || Numbers[*row+1][*col+1] != 0) )
 				{
 
 					printf("\a");
 
-					Select[x+1][y+1] ='|';
-					Select[x][y] ='|';
-					Select[x+1][y+1] ='|';
+					Select[*row+1][*col+1] ='|';
+					Select[*row][*col] ='|';
+					Select[*row+1][*col+1] ='|';
 
 					system("cls");
 					Board(x,y,Numbers,Select,BoardSize);
 					Intructions(Score);
 					getch();
 
-					Select[x+1][y+1] =' ';
-					Select[x][y] =' ';
-					Select[x+1][y+1] =' ';
+					Select[*row+1][*col+1] =' ';
+					Select[*row][*col] =' ';
+					Select[*row+1][*col+1] =' ';
 
-					Numbers[x][y] = 2;
+					Numbers[*row][*col] = 2;
 
 					system("cls");
 					Board(x,y,Numbers,Select,BoardSize);
