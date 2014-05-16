@@ -235,7 +235,7 @@ int CheckFunctionPlayer1(int *row,int *col,int x,int y,char Select[28][28],int N
 			for(y=1; y < BoardSize->col; y++)
 			{
 				/*Checks the vertically if there are any valid combinations and adds scores if there are*/
-				if((Numbers[x-1][y] == Numbers[x+1][y] && Numbers[x][y] == 2 && Numbers[x][y] != 0) && (Numbers[x-1][y] != 0 || Numbers[x+1][y] != 0) )
+				if((Numbers[x-1][y] == Numbers[x+1][y] && Numbers[x][y] == 2 && Numbers[x][y] != 0 && Numbers[x-1][y] == 1) && (Numbers[x-1][y] != 0 || Numbers[x+1][y] != 0) )
 				{
 
 					printf("\a");
@@ -261,7 +261,7 @@ int CheckFunctionPlayer1(int *row,int *col,int x,int y,char Select[28][28],int N
 					*Valid = 1;
 				}
 				/*Checks the horizontally if there are any valid combinations and adds scores if there are*/
-				else if((Numbers[x][y-1] == Numbers[x][y+1] && Numbers[x][y] == 2 && Numbers[x][y] != 0) && (Numbers[x][y-1] != 0 || Numbers[x][y+1] != 0) )
+				else if((Numbers[x][y-1] == Numbers[x][y+1] && Numbers[x][y] == 2 && Numbers[x][y] != 0 && Numbers[x+1][y] == 1) && (Numbers[x][y-1] != 0 || Numbers[x][y+1] != 0) )
 				{
 
 					printf("\a");
@@ -287,7 +287,7 @@ int CheckFunctionPlayer1(int *row,int *col,int x,int y,char Select[28][28],int N
 					*Valid = 1;
 				}
 				/*Checks the diagonally if there are any valid combinations and adds scores if there are*/
-				else if((Numbers[x-1][y+1] == Numbers[x+1][y-1] && Numbers[x][y] == 2 && Numbers[x][y] != 0) && (Numbers[x-1][y+1] != 0 || Numbers[x+1][y-1] != 0) )
+				else if((Numbers[x-1][y+1] == Numbers[x+1][y-1] && Numbers[x][y] == 2 && Numbers[x][y] != 0 && Numbers[x-1][y+1] == 1) && (Numbers[x-1][y+1] != 0 || Numbers[x+1][y-1] != 0) )
 				{
 
 					printf("\a");
@@ -312,7 +312,7 @@ int CheckFunctionPlayer1(int *row,int *col,int x,int y,char Select[28][28],int N
 					Intructions(Score);
 					*Valid = 1;
 				}
-				else if((Numbers[x+1][y+1] == Numbers[x+1][y+1] && Numbers[x][y] == 2 && Numbers[x][y] != 0) && (Numbers[x+1][y+1] != 0 || Numbers[x+1][y+1] != 0) )
+				else if((Numbers[x+1][y+1] == Numbers[x+1][y+1] && Numbers[x][y] == 2 && Numbers[x][y] != 0 && Numbers[x+1][y+1] == 1) && (Numbers[x+1][y+1] != 0 || Numbers[x+1][y+1] != 0) )
 				{
 
 					printf("\a");
@@ -350,7 +350,7 @@ int CheckFunctionPlayer2(int *row,int *col,int x,int y,char Select[28][28],int N
 			for(y=1; y < BoardSize->col; y++)
 			{
 				/*Checks the vertically if there are any valid combinations and adds scores if there are*/
-				if((Numbers[x-1][y] == Numbers[x+1][y] && Numbers[x][y] == 1 && Numbers[x][y] != 0) && (Numbers[x-1][y] != 0 || Numbers[x+1][y] != 0) )
+				if((Numbers[x-1][y] == Numbers[x+1][y] && Numbers[x][y] == 1 && Numbers[x][y] != 0 && Numbers[x-1][y] == 1) && (Numbers[x-1][y] != 0 || Numbers[x+1][y] != 0) )
 				{
 
 					printf("\a");
@@ -376,7 +376,7 @@ int CheckFunctionPlayer2(int *row,int *col,int x,int y,char Select[28][28],int N
 					*Valid = 1;
 				}
 				/*Checks the horizontally if there are any valid combinations and adds scores if there are*/
-				else if((Numbers[x][y-1] == Numbers[x][y+1] && Numbers[x][y] == 1 && Numbers[x][y] != 0) && (Numbers[x][y-1] != 0 || Numbers[x][y+1] != 0) )
+				else if((Numbers[x][y-1] == Numbers[x][y+1] && Numbers[x][y] == 1 && Numbers[x][y] != 0 && Numbers[x-1][y] == 1) && (Numbers[x][y-1] != 0 || Numbers[x][y+1] != 0) )
 				{
 					printf("\a");
 
@@ -401,7 +401,7 @@ int CheckFunctionPlayer2(int *row,int *col,int x,int y,char Select[28][28],int N
 					*Valid = 1;
 				}
 				/*Checks the diagonally if there are any valid combinations and adds scores if there are*/
-				else if((Numbers[x-1][y+1] == Numbers[x+1][y-1] && Numbers[x][y] == 1 && Numbers[x][y] != 0) && (Numbers[x-1][y+1] != 0 || Numbers[x+1][y-1] != 0) )
+				else if((Numbers[x-1][y+1] == Numbers[x+1][y-1] && Numbers[x][y] == 1 && Numbers[x][y] != 0 && Numbers[x-1][y] == 1) && (Numbers[x-1][y+1] != 0 || Numbers[x+1][y-1] != 0) )
 				{
 
 					printf("\a");
@@ -426,7 +426,7 @@ int CheckFunctionPlayer2(int *row,int *col,int x,int y,char Select[28][28],int N
 					Intructions(Score);
 					*Valid = 1;
 				}
-				else if((Numbers[x+1][y+1] == Numbers[x+1][y+1] && Numbers[x][y] == 1 && Numbers[x][y] != 0) && (Numbers[x+1][y+1] != 0 || Numbers[x+1][y+1] != 0) )
+				else if((Numbers[x+1][y+1] == Numbers[x+1][y+1] && Numbers[x][y] == 1 && Numbers[x][y] != 0 && Numbers[x-1][y] == 1) && (Numbers[x+1][y+1] != 0 || Numbers[x+1][y+1] != 0) )
 				{
 
 					printf("\a");
